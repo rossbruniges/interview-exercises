@@ -44,7 +44,7 @@ class Martian {
     move(direction) {
         let angle = this.location.dir;
         if (direction === 'F') {
-            switch (this.location.dir) {
+            switch (angle) {
                 case 0:
                     this.location.y = this.location.y + 1;
                     break;
@@ -60,17 +60,17 @@ class Martian {
             }
         }
         if (direction === 'L') {
-            if (this.location.dir - 90 < 0) {
+            if (angle - 90 < 0) {
                 this.location.dir = 270;
             } else {
-               this.location.dir = this.location.dir - 90;
+               this.location.dir = angle - 90;
             }
         }
         if (direction === 'R') {
-            if (this.location.dir + 90 > 270) {
+            if (angle + 90 > 270) {
                 this.location.dir = 0;
             } else {
-               this.location.dir = this.location.dir + 90;
+               this.location.dir = angle + 90;
             }
         }
     }
