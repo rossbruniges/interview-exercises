@@ -12,9 +12,14 @@ Because no difficult set up steps were required you 'just' need node installed o
 
 This should take care of everything (assuming you are in the `martians` directory).
 
-    $ node robots-on-mars.js
+    $ npm install
+    $ babel-node robots-on-mars.js
 
 The final outputs are logged out to the console.
+
+### Tests
+
+    $ npm test
 
 ## Notes
 

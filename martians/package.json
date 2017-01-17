@@ -1,0 +1,23 @@
+{
+  "name": "martians",
+  "version": "1.0.0",
+  "description": "Code interview test question - moving a robot around Mars",
+  "main": "robots-on-mars.js",
+  "scripts": {
+    "test": "babel-node node_modules/.bin/jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rossbruniges/interview-exercises/martians"
+  },
+  "author": "Ross Bruniges",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "jasmine": "^2.5.3"
+  }
+}
