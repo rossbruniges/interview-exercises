@@ -68,6 +68,48 @@ a {
     }
 }
 
+.accordion {
+    list-style: none;
+    padding: 0;
+}
+
+.accordion__trigger button {
+    border: 0;
+    background: transparent;
+    font-size: inherit;
+    padding: 0 15px;
+    display: block;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "-";
+        font-size: 2rem;
+        line-height: 1;
+
+        .accordion__item[data-open='false'] & {
+            content: "+";
+        }
+    }
+}
+
+.accordion__content {
+    .accordion__item[data-open='false'] & {
+        height: 0;
+        overflow: hidden;
+    }
+}
+
 .page-footer {
     background: #f4f4f4;
 }
