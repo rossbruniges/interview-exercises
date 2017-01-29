@@ -1,12 +1,11 @@
 {
-  "name": "progressive-html",
+  "name": "progressive-page",
   "version": "1.0.0",
   "description": "A page - progressively enhanced with features and utility",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "node-sass -w -r assets/dev/scss/ -o assets/build/css/",
-    "build-js": "babel assets/dev/es6/index.js --watch --out-file assets/build/js/index.js",
+    "webpack": "webpack",
     "webpack:watch": "webpack --watch"
   },
   "author": "Ross Bruniges",

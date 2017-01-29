@@ -102,7 +102,7 @@
 
 	var _accordion = __webpack_require__(1);
 
-	var _removeSection = __webpack_require__(6);
+	var _removeSection = __webpack_require__(2);
 
 	var accordions = document.querySelectorAll('.accordion');
 
@@ -124,14 +124,14 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var Accordion = exports.Accordion = function () {
-	    function Accordion(parentElm, child, triggerCls, contentCls) {
+	    function Accordion(parentElm, childCls, triggerCls, contentCls) {
 	        var initOpen = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
 
 	        _classCallCheck(this, Accordion);
 
 	        this.parentElm = parentElm;
-	        this.children = parentElm.querySelectorAll(child);
-	        this.childCls = child;
+	        this.children = parentElm.querySelectorAll(childCls);
+	        this.childCls = childCls;
 	        this.triggerCls = triggerCls;
 	        this.contentCls = contentCls;
 	        this.open = initOpen;
@@ -149,14 +149,17 @@
 	    };
 
 	    Accordion.prototype.init = function init() {
-	        var that = this;
+	        // using event delegation to only bind one click event to the document
+	        // (not one for each list item - which there could be loads of)
 	        this.parentElm.addEventListener('click', function (e) {
 	            e.preventDefault();
-	            that.animateSections(e);
-	        });
+	            this.animateSections(e);
+	        }.bind(this));
+	        // we've got a nodeList - so forEach won't work consistently - so going old school
 	        for (var i = 0; i < this.children.length; i++) {
 	            var child = this.children[i];
 	            child.dataset.index = i;
+	            // wrap each title in a button to allow keyboard accessibility
 	            child.querySelector(this.triggerCls).innerHTML = '<button>' + child.querySelector(this.triggerCls).innerHTML + '</button>';
 	            child.dataset.contentHeight = child.querySelector(this.contentCls).offsetHeight;
 	            this.open !== i ? child.dataset.open = false : child.dataset.open = true;
@@ -167,11 +170,7 @@
 	}();
 
 /***/ },
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 2 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -194,18 +193,20 @@
 
 	    RemoveSection.prototype.deleteThis = function deleteThis(elm) {
 	        var target = elm.target;
+	        // only listen to clicks on the remove button element
 	        if (target.nodeName === "BUTTON" && target.classList.contains('btn--remove')) {
 	            this.parentElm.removeChild(target.closest(this.sectionCls));
 	        }
 	    };
 
 	    RemoveSection.prototype.init = function init() {
-	        var that = this,
-	            children = this.parentElm.querySelectorAll(this.sectionCls);
+	        var children = this.parentElm.querySelectorAll(this.sectionCls);
+	        // using event delegation to only bind one click hander
+	        // as nodes get removed we don't have to clean up any redundant click handlers
 	        this.parentElm.addEventListener('click', function (e) {
 	            e.preventDefault();
-	            that.deleteThis(e);
-	        });
+	            this.deleteThis(e);
+	        }.bind(this));
 	        for (var i = 0; i < children.length; i++) {
 	            var button = document.createElement('button');
 	            button.innerText = 'Remove section';
