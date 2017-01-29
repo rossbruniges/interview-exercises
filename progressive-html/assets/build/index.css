@@ -28,11 +28,11 @@ a {
   .btn:hover, .btn:focus {
     background: #e03400;
     border-color: #e03400;
-    color: #fff; }
+    color: #eaecee; }
 
 .branding-header {
   background: #6a148e;
-  color: #fff;
+  color: #eaecee;
   font-weight: bold; }
 
 .logo {
@@ -54,7 +54,7 @@ a {
   text-align: center; }
   .main-nav__item a {
     display: block;
-    color: #fff;
+    color: #eaecee;
     font-weight: normal;
     padding: 1rem 0; }
     .main-nav__item a:hover, .main-nav__item a:focus {
@@ -134,11 +134,11 @@ a {
 
 .legal-nav__item {
   display: inline-block;
-  border-left: 1px solid #fff; }
+  border-left: 1px solid #eaecee; }
   .legal-nav__item:first-child {
     border-left: 0;
     margin-left: -5px; }
   .legal-nav__item a {
-    color: #fff;
+    color: #eaecee;
     padding: 0.5rem 5px;
     display: block; }

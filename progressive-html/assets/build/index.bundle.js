@@ -102,7 +102,7 @@
 
 	var _accordion = __webpack_require__(1);
 
-	var _removeSection = __webpack_require__(6);
+	var _removeSection = __webpack_require__(2);
 
 	var accordions = document.querySelectorAll('.accordion');
 
@@ -167,11 +167,7 @@
 	}();
 
 /***/ },
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 2 */
 /***/ function(module, exports) {
 
 	'use strict';

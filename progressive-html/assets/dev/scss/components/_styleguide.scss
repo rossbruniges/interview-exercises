@@ -1,0 +1,42 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    background: $light-white;
+    margin: 0;
+    color: $reading-text;
+    font-size: 1.6rem;
+    font-family: arial,helvetica,sans-serif;
+}
+
+a {
+    color: $link-blue;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+.wrapper {
+    box-sizing: border-box;
+    padding: 2rem 20px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.btn {
+    color: $light-grey;
+    border: 2px solid $light-grey;
+    padding: .5rem 15px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        background: $warning-red;
+        border-color: $warning-red;
+        color: $light-white;
+    }
+}
