@@ -102,10 +102,13 @@
 
 	var _accordion = __webpack_require__(1);
 
+	var _removeSection = __webpack_require__(6);
+
 	var accordions = document.querySelectorAll('.accordion');
 
 	for (var i = 0; i < accordions.length; i++) {
 	    new _accordion.Accordion(accordions[i], '.accordion__item', '.accordion__trigger', '.accordion__content');
+	    new _removeSection.RemoveSection(accordions[i], '.accordion__item');
 	}
 
 /***/ },
@@ -161,6 +164,57 @@
 	    };
 
 	    return Accordion;
+	}();
+
+/***/ },
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var RemoveSection = exports.RemoveSection = function () {
+	    function RemoveSection(parentElm, sectionCls) {
+	        _classCallCheck(this, RemoveSection);
+
+	        this.parentElm = parentElm;
+	        this.sectionCls = sectionCls;
+
+	        this.init();
+	    }
+
+	    RemoveSection.prototype.deleteThis = function deleteThis(elm) {
+	        var target = elm.target;
+	        if (target.nodeName === "BUTTON" && target.classList.contains('btn--remove')) {
+	            this.parentElm.removeChild(target.closest(this.sectionCls));
+	        }
+	    };
+
+	    RemoveSection.prototype.init = function init() {
+	        var that = this,
+	            children = this.parentElm.querySelectorAll(this.sectionCls);
+	        this.parentElm.addEventListener('click', function (e) {
+	            e.preventDefault();
+	            that.deleteThis(e);
+	        });
+	        for (var i = 0; i < children.length; i++) {
+	            var button = document.createElement('button');
+	            button.innerText = 'Remove section';
+	            button.classList.add('btn', 'btn--remove');
+	            children[i].appendChild(button);
+	        }
+	    };
+
+	    return RemoveSection;
 	}();
 
 /***/ }

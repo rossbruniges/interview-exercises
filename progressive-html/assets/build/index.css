@@ -20,6 +20,16 @@ a {
   max-width: 640px;
   margin: 0 auto; }
 
+.btn {
+  color: #9b9b9b;
+  border: 2px solid #9b9b9b;
+  padding: .5rem 15px;
+  cursor: pointer; }
+  .btn:hover, .btn:focus {
+    background: #e03400;
+    border-color: #e03400;
+    color: #fff; }
+
 .branding-header {
   background: #6a148e;
   color: #fff;
@@ -55,6 +65,13 @@ a {
 .accordion {
   list-style: none;
   padding: 0; }
+  .accordion .btn--remove {
+    float: right; }
+
+.accordion__item {
+  overflow: hidden; }
+  .accordion__item[data-open='false'] .btn--remove {
+    display: none; }
 
 .accordion__trigger button {
   border: 0;
