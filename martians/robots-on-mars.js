@@ -10,29 +10,26 @@ FRRFLLFFRRFLL
 0 3 W
 LLFFFLFLFL`
 
-function orientation2Degs(o) {
-    switch (o) {
-        case 'N':
-            return 0;
-        case 'E':
-            return 90;
-        case 'S':
-            return 180;
-        case 'W':
-            return 270;
-    }       
-}
+const directions = ['N', 'E', 'S', 'W'];
 
 class Coord {
     constructor(data) {
         let points = data.split(' ');
         this.x = Number(points[0]);
         this.y = Number(points[1]);
-        this.dir = orientation2Degs(points[2]);
+        this.dir = Number(this.convertString(points[2]));
+    }
+
+    convertString(point) {
+        return directions.indexOf(point) * 360/directions.length;
+    }
+
+    convertNumber(degrees) {
+        return directions[degrees / (360/directions.length)];
     }
 
     render() {
-        return `${this.x} ${this.y} ${this.dir}`
+        return `${this.x} ${this.y} ${this.convertNumber(this.dir)}`
     }
 }
 

@@ -1,0 +1,40 @@
+.branding-header {
+    background: $zpg-purple;
+    color: $light-white;
+    font-weight: bold;
+}
+
+.logo {
+    margin: 0;
+    background: transparent url('../../images/logo.svg') no-repeat 0 0;
+    background-size: contain;
+    text-indent: -200px;
+    font-size: 2rem;
+}
+
+.main-nav__list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav__item {
+    flex-grow: 1;
+    display: inline-block;
+    text-align: center;
+
+    a {
+        display: block;
+        color: $light-white;
+        font-weight: normal;
+        padding: 1rem 0;
+
+        &:hover,
+        &:focus {
+            background: $zpg-purple--darker;
+            border-radius: 400px;
+            text-decoration: none;
+        }
+    }
+}
