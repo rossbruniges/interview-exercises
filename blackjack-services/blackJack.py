@@ -116,7 +116,7 @@ class Game():
     def __repr__(self):
         return "{}\n\n{}\n".format(self.player, self.dealer)
 
-
+'''
 D = Deck()
 
 p = Player("Ross")
@@ -129,3 +129,4 @@ d.new_hand(h)
 
 g = Game(D, p, d)
 g.play()
+'''
